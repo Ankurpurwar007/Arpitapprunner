@@ -1,6 +1,8 @@
 from wsgiref.simple_server import make_server
 from pyramid.config import Configurator
 from pyramid.response import Response
+import requests
+
 import os
 
 def hello_world(request):
@@ -8,8 +10,10 @@ def hello_world(request):
     if name == None or len(name) == 0:
         name = "world"
     message = "Hello, " + name + "!\n"
+    response = requests.get("https://noderestapi.agaarpi.awsps.myinstance.com/api/user/users")
+    print(response.text)
     print(message)
-    return Response(message)
+    return Response(message + response.text)
 
 if __name__ == '__main__':
     port = int(os.environ.get("PORT"))
