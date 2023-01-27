@@ -6,3 +6,4 @@ phases:
       - ls -lhrat
       - pwd
       - pwd
+      - pwd
