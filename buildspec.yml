@@ -9,3 +9,4 @@ phases:
       - pwd
       - pwd
       - pwd
+      - wpd
