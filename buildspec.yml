@@ -3,11 +3,4 @@ version: 0.2
 phases:
   build:
     commands:
-      - ls -lhrat
-      - pwd
-      - pwd
-      - pwd
-      - pwd
-      - pwd
-      - wpd
-      - pwd
+      - npm install
