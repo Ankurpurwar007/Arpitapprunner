@@ -1,7 +1,7 @@
 FROM python:2.7
 
 # Add sample application
-ADD application.py /tmp/application.py
+ADD server.py /tmp/application.py
 
 EXPOSE 8000
 
