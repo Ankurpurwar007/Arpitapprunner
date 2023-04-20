@@ -3,5 +3,4 @@ version: 0.2
 phases:
   build:
     commands:
-      - codebuild-breakpoint
-      - npm install
+      - python3 1.py
