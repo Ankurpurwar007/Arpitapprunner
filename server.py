@@ -5,7 +5,6 @@ import os
 import socket
 import logging
 port = int(os.environ.get("PORT"))
-i = 0
 def hello_world(request):
     name = os.environ.get('NAME')
     if name == None or len(name) == 0:
@@ -13,9 +12,7 @@ def hello_world(request):
     message = "Hello, " + name + str(port) + "!\n"
     data = socket.gethostbyname_ex("www.google.com")
     logging.debug("\n\nThe IP Address of the Domain Name is: "+repr(data))
-    print(repr(data) + str(i))
-    i+=1
-    return Response(message + "\n\nThe IP Address of the Domain Name is: "+repr(data) + str(i))
+    return Response(message + "\n\nThe IP Address of the Domain Name is: "+repr(data))
     
 
 if __name__ == '__main__':
