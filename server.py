@@ -11,8 +11,13 @@ def hello_world(request):
         name = "world"
     message = "Hello, " + name + str(port) + "!\n"
     data = socket.gethostbyname_ex("www.google.com")
+    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    s.connect(('www.google.com', 80))
+    request = b'CONNECT google.com HTTP/1.1\n\n'
+    s.send(request)
+    print(s.recv(4096).decode())
     logging.debug("\n\nThe IP Address of the Domain Name is: "+repr(data))
-    return Response(message + "\n\nThe IP Address of the Domain Name is: "+repr(data))
+    return Response(message + "\n\nThe IP Address of the Domain Name is: "+repr(data) + "\n final" +s.recv(4096).decode())
     
 
 if __name__ == '__main__':
